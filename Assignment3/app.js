@@ -69,7 +69,7 @@
                 var foundItems = [];
                 for (var index = 0; index < itemsToSearch.length; index++) {
                     var currentItem = itemsToSearch[index];
-                    var isMatched = currentItem.description.indexOf(searchTerm) !== -1;
+                    var isMatched = currentItem.description.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
                     if (isMatched) {
                         foundItems.push(currentItem);
                     }
