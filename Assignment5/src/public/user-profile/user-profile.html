@@ -1,0 +1,39 @@
+<div class="container">
+    <form name="signupForm" novalidate>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input name="firstName" readonly ng-model="userProfileCtrl.firstName" type="input" class="form-control">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input name="lastName" readonly ng-model="userProfileCtrl.lastName" type="input" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input name="email" readonly type="email" ng-model="userProfileCtrl.email" class="form-control">
+                </div>
+
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input name="phone" readonly required type="input" ng-model="userProfileCtrl.phone" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h2 id="menu-categories-title" class="text-center">Your favorite Menu Item</h2>
+
+            <menu-item menu-item="userProfileCtrl.menuItem"></menu-item>
+        </div>
+
+    </form>
+</div>

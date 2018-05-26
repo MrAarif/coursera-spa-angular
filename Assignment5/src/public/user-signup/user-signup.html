@@ -1,0 +1,84 @@
+<div class="container">
+    <h2 id="menu-categories-title" class="text-center">Sign Up for a newsletter from us</h2>
+
+    <form name="signupForm" ng-submit="signupForm.$valid && userSignUpCtrl.signup()" novalidate>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input name="firstName" required ng-model="userSignUpCtrl.firstName" ng-minlength="3" ng-maxlength="10" type="input" class="form-control">
+                    <p ng-show="signupForm.firstName.$error.minlength" class="error-indicator">First Name is too short</p>
+                    <p ng-show="signupForm.firstName.$error.maxlength" class="error-indicator">First Name is too long</p>
+                    <p ng-show="signupForm.firstName.$error.required && signupForm.$submitted" class="error-indicator">First Name is required</p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input name="lastName" required ng-model="userSignUpCtrl.lastName" type="input" ng-minlength="3" ng-maxlength="10" class="form-control">
+                    <p ng-show="signupForm.lastName.$error.minlength" class="error-indicator">Last Name is too short</p>
+                    <p ng-show="signupForm.lastName.$error.maxlength" class="error-indicator">Last Name is too long</p>
+                    <p ng-show="signupForm.lastName.$error.required && signupForm.$submitted" class="error-indicator">Last Name is required</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input name="email" required type="email" ng-model="userSignUpCtrl.email" class="form-control">
+                    <p ng-show="signupForm.email.$invalid && !signupForm.email.$pristine" class="error-indicator">Enter a valid email</p>
+                    <p ng-show="signupForm.email.$error.required && signupForm.$submitted" class="error-indicator">Email is required</p>
+                </div>
+
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input name="phone" placeholder="+xx-xxxx-xxxx or +xx.xxxx.xxxx or +xx xxxx xxxx" required type="input" ng-model="userSignUpCtrl.phone"
+                        ng-pattern="userSignUpCtrl.phonePattern" class="form-control">
+                    <p ng-show="signupForm.phone.$error.pattern && signupForm.phone.$dirty" class="error-indicator">Enter a valid phone number</p>
+                    <p ng-show="signupForm.phone.$error.required && signupForm.$submitted" class="error-indicator">Phone Number is required</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="dish">Your favorite Menu Item Number:</label>
+                    <input name="menuItemNumber" type="input" ng-model="userSignUpCtrl.menuItemNumber" class="form-control">
+                    <p ng-show="signupForm.menuItemNumber.$error.required && signupForm.$submitted" class="error-indicator">Menu Item Number is required</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+            <div class="col-sm-6">
+
+            </div>
+        </div>
+        <div class="row" ng-show="signupForm.$submitted && userSignUpCtrl.showError">
+            <div class="form-group">
+                <div class="alert alert-danger fade in">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    No such menu number exists
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="signupForm.$submitted && userSignUpCtrl.showSuccess">
+            <div class="form-group">
+                <div class="alert alert-success fade in">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    Your information has been saved
+                </div>
+            </div>
+        </div>
+
+
+
+</form>
+</div>
