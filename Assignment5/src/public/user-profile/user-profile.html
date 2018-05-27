@@ -29,10 +29,16 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <h2 id="menu-categories-title" class="text-center">Your favorite Menu Item</h2>
-
+        <div ng-show="{{userProfileCtrl.isUserRegistered}}" class="row">
+            <h2 class="text-center">Your favorite Menu Item</h2>
             <menu-item menu-item="userProfileCtrl.menuItem"></menu-item>
+        </div>
+        <div class="row" ng-hide="{{userProfileCtrl.isUserRegistered}}">
+            <div class="alert alert-info fade in">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                Not Signed Up Yet.
+                <a ui-sref="public.signup" class="alert-link">Sign up</a> Now!.
+            </div>
         </div>
 
     </form>
